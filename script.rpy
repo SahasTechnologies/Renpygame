@@ -1,4 +1,4 @@
-﻿image img_laptop = "images/Laptop-computer-with-apps-icons-interface-on-transparent-background-PNG.png"
+image img_laptop = "images/Laptop-computer-with-apps-icons-interface-on-transparent-background-PNG.png"
 image img_door = "images/door.png"
 image img_living = "images/living.png"
 image img_start = "images/start.png"
@@ -8,7 +8,10 @@ image black = "#000000"
 define computer = Character("Computer")
 
 label start:
-    scene img_start
+    # This 'show' block stretches the image to fill your screen
+    show img_start:
+        xysize (config.screen_width, config.screen_height)
+    
     "You don't know just how many days you've been here."
     "You barely even remember why you were here."
     "You feel fatigued and worn out, but need to pass the time."
@@ -21,7 +24,9 @@ label start:
             jump Study
 
 label Living:
-    scene img_living
+    show img_living:
+        xysize (config.screen_width, config.screen_height)
+        
     "You see something in front of you, and then your vision goes blurry."
     
     with hpunch
@@ -42,11 +47,15 @@ label LivingYes:
     jump Door
 
 label Door:
-    scene img_door
+    show img_door:
+        xysize (config.screen_width, config.screen_height)
+        
     "You turn the key... and turn it more..."
     "And then it asks a riddle."
     
+    # We don't stretch the laptop because it's an item, not a background
     show img_laptop with dissolve
+    
     computer "I'm tall when I'm young, and I'm short when I'm old. I tremble in the wind, yet I have no fear. Am I made of wax?"
 
     menu:
@@ -68,7 +77,9 @@ label death:
     return
 
 label Study:
-    scene img_study
+    show img_study:
+        xysize (config.screen_width, config.screen_height)
+        
     "You find an extra oxygen tank hidden away beneath the dusty books!"
     "You're saved... at least for now."
     "Game over."
