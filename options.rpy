@@ -1,4 +1,4 @@
-﻿## This file contains options that can be changed to customize your game.
+## This file contains options that can be changed to customize your game.
 ##
 ## Lines beginning with two '#' marks are comments, and you shouldn't uncomment
 ## them. Lines beginning with a single '#' mark are commented-out code, and you
@@ -183,6 +183,11 @@ init python:
     build.classify('**/.**', None)
     build.classify('**/#**', None)
     build.classify('**/thumbs.db', None)
+    build.classify('game/cache/**', None)
+    build.classify('game/saves/**', None)
+    build.classify('**/.**', None)
+    build.classify('**/#**', None)
+    build.classify('**/thumbs.db', None)
 
     ## To archive files, classify them as 'archive'.
 
@@ -205,4 +210,5 @@ init python:
 
 ## The username and project name associated with an itch.io project, separated
 ## by a slash.
+
 define build.itch_project = "SahasTechnologies/Renpygame"
